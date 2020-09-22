@@ -1,5 +1,6 @@
 const path = require('path');// Direct acces to the folders (local or cloud)
 const HtmlWebpackPlugin = require('html-webpack-plugin');//Permit to work with html
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports ={ //Block of settings of what will happen. It will be exported.
     entry: './src/index.js',// From this point will be export the code settings.
@@ -29,6 +30,12 @@ module.exports ={ //Block of settings of what will happen. It will be exported.
                 filename: './index.html',//name of the file
             }
         ),
+        new CopyWebpackPlugin({
+            patterns:[{
+                from: './src/styles/styles.css',
+                to: ''
+            }]
+        }),
     ]
 
 }
